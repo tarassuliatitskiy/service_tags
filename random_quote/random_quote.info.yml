@@ -1,0 +1,8 @@
+name: 'Random quote'
+type: module
+description: 'Random quote module'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - block
+  - config

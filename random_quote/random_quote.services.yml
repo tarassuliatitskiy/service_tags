@@ -1,0 +1,17 @@
+services:
+  logger.channel.random_quote:
+    parent: logger.channel_base
+    arguments: ['random_quote']
+  random_quote:
+    class: Drupal\random_quote\RandomQuotes
+    tags:
+      - { name: service_collector, tag: random_quote_generator, call: addGenerator }
+  random_quote_generator.external:
+    class: Drupal\random_quote\RandomQuoteGeneratorExternal
+    arguments: ['@http_client', '@logger.channel.random_quote']
+    tags:
+      - { name: random_quote_generator, priority: 0 }
+  random_quote_generator.static:
+    class: Drupal\random_quote\RandomQuoteGeneratorStatic
+    tags:
+      - { name: random_quote_generator, priority: 1 }

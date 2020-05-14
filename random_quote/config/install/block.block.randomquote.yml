@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - random_quote
+  theme:
+    - bartik
+id: randomquote
+theme: bartik
+region: content
+weight: -7
+provider: null
+plugin: random_quote
+settings:
+  id: random_quote
+  label: 'Random quote'
+  provider: random_quote
+  label_display: visible
+  uppercase_quote: false
+visibility: {  }
